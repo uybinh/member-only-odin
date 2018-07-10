@@ -1,2 +1,13 @@
-
-<%= @user.name %>
+<div class="column">
+  <div class="box">
+    <article class="media">
+      <div class="media-left">
+        <%= gravatar_for(@user) %>
+      </div>
+      <div class="media-content">
+        <p class="has-text-weight-bold"><%= @user.name %></p>
+        <p><%= @user.email %></p>
+      </div>
+    </article>
+  </div>
+</div>

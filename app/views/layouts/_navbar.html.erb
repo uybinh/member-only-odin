@@ -19,16 +19,21 @@
         Users
       </a>
       <% if logged_in? %>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="">
-          Account
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <%= link_to "Profile", current_user, class: "navbar-item" %>
-          <%= link_to "Settings", edit_user_path(current_user), class: "navbar-item"%>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="">
+            Account
+          </a>
+          <div class="navbar-dropdown is-boxed">
+            <%= link_to "Profile", current_user, class: "navbar-item" %>
+            <%= link_to "Settings", edit_user_path(current_user), class: "navbar-item"%>
+          </div>
         </div>
-      </div>
-       <% end %>
+        <div class="navbar-item">
+          <p class="control">
+            <%= link_to "New post", new_post_path, class: "button is-primary"%>
+          </p>
+        </div>
+      <% end %>
     </div>
 
     <div class="navbar-end">
