@@ -1,0 +1,18 @@
+<li>
+  <div class="box">
+    <div class="post-title">
+      <h2 class="title is-5">
+        <%= link_to post.title , post_path(post) %>
+      </h2> 
+    </div>
+    <div class="post-meta">
+      <%= link_to "Edit", edit_post_path(post) %>
+      |<%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "You suare?"} %>
+    </div>
+    <div class="post-body">
+    </div>
+    <div class="content">
+      <%= post.body %>
+    </div>
+  </div>
+</li>
