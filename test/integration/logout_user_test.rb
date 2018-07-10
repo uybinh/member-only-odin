@@ -12,7 +12,7 @@ class LogoutUserTest < ActionDispatch::IntegrationTest
     delete logout_path
     assert_redirected_to root_path
     follow_redirect!
-    assert_template "users/index"
+    assert_template "posts/index"
     assert_select "a.button", text: "Login"
   end
 end

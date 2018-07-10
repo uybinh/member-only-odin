@@ -7,7 +7,7 @@ class LayoutLinksTest < ActionDispatch::IntegrationTest
 
   test "vist home page" do
     get root_url
-    assert_template "users/index"
+    assert_template "posts/index"
     assert_select "a.button", text: "Signup"
     assert_select "a.button", text: "Login"
   end
