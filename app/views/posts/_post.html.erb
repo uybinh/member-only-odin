@@ -1,18 +1,31 @@
 <li>
-  <div class="box">
+  <article class="box no-border">
     <div class="post-title">
       <h2 class="title is-5">
         <%= link_to post.title , post_path(post) %>
       </h2> 
     </div>
     <div class="post-meta">
-      <%= link_to "Edit", edit_post_path(post) %>
-      |<%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "You suare?"} %>
+      <div class="meta">
+        <% if logged_in? %>
+        <%= link_to "Edit", edit_post_path(post) %> •
+        <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "You sure?"} %> •
+        <% end %>
+        <%= post.created_at.to_formatted_s(:long)  %>
+      </div>
+      <% if logged_in? %>
+      <div class="post-author">
+        <%= gravatar_for(post.user, size: 20)%>
+        <%= post.user.name %>
+      </div>
+      <% end %>
     </div>
     <div class="post-body">
     </div>
     <div class="content">
+      <div class="box">
       <%= post.body %>
+      </div>
     </div>
-  </div>
+  </article>
 </li>

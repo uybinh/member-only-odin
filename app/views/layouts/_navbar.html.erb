@@ -1,7 +1,8 @@
 <nav class="navbar is-transparent">
   <div class="navbar-brand">
     <a class="navbar-item" href="<%= root_path %>">
-      <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+      <%# <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28"> %>
+      CLUBHOUSE
     </a>
     <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
       <span></span>
@@ -12,12 +13,8 @@
 
   <div id="navbarExampleTransparentExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="<%= root_path %>">
-        Home
-      </a>
-      <a class="navbar-item" href="<%= users_path %>">
-        Users
-      </a>
+      <%= link_to "Home", root_path, class: "navbar-item"%>
+      <%= link_to("Users", users_path, class: "navbar-item") if logged_in? %>
       <% if logged_in? %>
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="">
