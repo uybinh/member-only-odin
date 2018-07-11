@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
   before_save :downcase_email, :strip_whitespace
+  
   NAME_REGEX = /\A[\w\s]+\z/i
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :name,  presence: true,

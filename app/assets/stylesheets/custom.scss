@@ -54,3 +54,20 @@ footer {
   }
 }
 
+
+@media screen and (min-width: 425px), print {
+  .pagination {
+    .pagination-previous {
+      order: 1;
+    }
+    .pagination-list {
+      order: 2;
+      flex-grow: 0;
+    }
+    .pagination-next {
+      order: 3;
+    }
+  }
+}
+
+
