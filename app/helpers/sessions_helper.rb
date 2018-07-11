@@ -36,4 +36,22 @@ module SessionsHelper
   def cookie_user
       User.find(cookies.permanent.signed[:user_id]) if cookies.permanent.signed[:user_id]
   end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please login"
+      redirect_to login_path 
+    end
+  end
+
+  def store_location
+    session[:redirect_back_url] = request.original_url if request.get?
+  end
+
+  def redirect_back_or(default)
+    url = session[:redirect_back_url] || default
+    redirect_to url
+    session[:redirect_back_url] = nil
+  end
 end

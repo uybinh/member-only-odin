@@ -11,11 +11,11 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "can't post withou login" do
+  test "can't post without login" do
     get new_post_path
-    assert_redirected_to root_path
+    assert_redirected_to login_path
     follow_redirect!
-    assert_template "posts/index"
+    assert_template "sessions/new"
   end
 
 
