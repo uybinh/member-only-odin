@@ -15,7 +15,7 @@
       </div>
       <% if logged_in? %>
       <div class="post-author">
-        <%= gravatar_for(post.user, size: 20)%>
+        <%= gravatar_for(post.user, size: 20)%> %>
         <%= post.user.name %>
       </div>
       <% end %>

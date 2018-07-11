@@ -4,5 +4,4 @@ module UsersHelper
     url = "https://www.gravatar.com/avatar/#{email_digest}?s=#{size}"
     image_tag(url, alt: user.name, class: "gravatar")
   end
-
 end

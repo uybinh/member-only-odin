@@ -3,7 +3,7 @@ require 'test_helper'
 class UserSignUpTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:uybinh)
-
+    # @post = posts(:one)
   end
 
   test "should get new url" do
@@ -29,7 +29,8 @@ class UserSignUpTest < ActionDispatch::IntegrationTest
                                         email: "binhxuan@gmail.com",
                                         password: "12345678",
                                         password_confirmation: "12345678"}}
+    assert_redirected_to root_path                                       
     follow_redirect!
-    assert_template "users/show"
+    assert_template "posts/index"
   end
 end

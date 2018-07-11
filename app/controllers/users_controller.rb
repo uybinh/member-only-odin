@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, except: [:new, :create]
   def index
     @users = User.all
   end
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      redirect_to @user
+      redirect_to root_path
     else
       flash.now[:info] = "Fail to create user"
       render :new
