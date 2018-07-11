@@ -3,3 +3,4 @@
   <%= render @posts %>
   </ul>
 </div>
+<%= will_paginate @posts, renderer: BulmaPagination::Rails %>
