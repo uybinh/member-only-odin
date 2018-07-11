@@ -34,7 +34,6 @@ module SessionsHelper
   end
 
   def cookie_user
-    User.find(cookies.permanent.signed[:user_id]) if cookies.permanent.signed[:user_id]
+      User.find(cookies.permanent.signed[:user_id]) if cookies.permanent.signed[:user_id]
   end
-
 end

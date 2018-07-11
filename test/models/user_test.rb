@@ -12,6 +12,12 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
+  test "shoud trip space" do
+    @user.name = "Uy Binh     "
+    @user.save!
+    assert_equal "Uy Binh", @user.name
+  end
+
   test "name should be present" do
     @user.name = nil
     assert_not @user.valid?
