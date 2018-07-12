@@ -15,6 +15,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: myapp_production
+  database: member_production
   username: <%= ENV['MYAPP_DATABASE_USERNAME'] %>
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

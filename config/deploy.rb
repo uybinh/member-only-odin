@@ -78,16 +78,17 @@ namespace :deploy do
     end
   end
 
-  desc "Load the seed data from db/seeds.rb"
-  task :seed do
+  desc 'Resets the database to an empty state'
+  task :reset do
     on primary :db do
       within release_path do
         with rails_env: fetch(:rails_env) do
-          execute :rake, 'db:seed'
+          execute :rake, 'db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1'
         end
       end
     end
   end
+  
 
   desc 'Restart application'
   task :restart do
