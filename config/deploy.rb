@@ -28,6 +28,8 @@ set :linked_files, %w{config/master.key}
 set :rbenv_type, :deploy # or :system, depends on your rbenv setup
 set :rbenv_ruby, '2.5.1'
 
+load 'config/deploy/seed'
+
 # in case you want to set ruby version from the file:
 # set :rbenv_ruby, File.read('.ruby-version').strip
 
@@ -80,11 +82,7 @@ namespace :deploy do
 
   desc "reload the database with seed data"
   task :seed do
-    on roles(:all) do
-      within current_path do
-        execute :bundle, :exec, 'rails', 'db:seed', 'RAILS_ENV=production'
-      end
-    end
+    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
   end
 
   desc 'Restart application'
