@@ -1,7 +1,7 @@
 # Change these
 server '172.104.162.202', roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'github.com:uybinh/member-only-odin.git'
+set :repo_url,        'git@github.com:uybinh/member-only-odin.git'
 set :application,     'member-only-odin'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
