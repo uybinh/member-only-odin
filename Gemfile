@@ -38,6 +38,7 @@ gem 'will_paginate-bulma'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bulma-rails', '~> 0.7.1'
 gem 'font-awesome-sass', '~> 5.0.13'
+gem "skylight"
 
 group :development, :test do
   gem 'sqlite3'
@@ -57,6 +58,8 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
   gem 'capistrano-rails-collection'
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
 
 group :test do
